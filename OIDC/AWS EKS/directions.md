@@ -1,0 +1,1 @@
+https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html#:~:text=Open%20the%20IAM%20console%20at,the%20URL%20of%20the%20IdP.
