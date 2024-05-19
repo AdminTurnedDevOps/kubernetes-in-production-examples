@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginxdeployment
+spec:
+  selector:
+    matchLabels:
+      app: nginxdeployment
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: nginxdeployment
+    spec:
+      containers:
+      - image: nginx:latest
+        name: nginx
+        volumeMounts:
+          - mountPath: /mnt/azure
+            name: azure
+      volumes:
+      - name: azure
+        persistentVolumeClaim:
+          claimName: azurefile
