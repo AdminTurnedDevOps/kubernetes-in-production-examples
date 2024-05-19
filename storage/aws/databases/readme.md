@@ -1,3 +1,6 @@
+1. Create an RDS database. ONLY go through step 2 and ensure you use the FREE TIER.
+https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.MySQL.html#CHAP_GettingStarted.Creating.MySQL
+
 ```
 docker volume create testvolume
 ```
