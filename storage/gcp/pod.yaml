@@ -1,0 +1,25 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: podgcp
+spec:
+  volumes:
+    - name: podpvc
+      persistentVolumeClaim:
+       claimName: pvcgcp
+  containers:
+    - name: nginxpod
+      image: nginx:latest
+      resources:
+        limits:
+          cpu: 10m
+          memory: 80Mi
+        requests:
+          cpu: 10m
+          memory: 80Mi
+      ports:
+        - containerPort: 80
+          name: "http-server"
+      volumeMounts:
+        - mountPath: "/usr/share/nginx/html"
+          name: podpvc

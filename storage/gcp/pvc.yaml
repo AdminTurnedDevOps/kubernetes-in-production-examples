@@ -1,0 +1,13 @@
+# azure example in the "storage" directory shows an example for ReadWriteMany
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pvcgcp
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 30Gi
+  storageClassName: standard-rwo
