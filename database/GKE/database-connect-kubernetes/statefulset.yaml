@@ -34,6 +34,8 @@ spec:
           value: root
         - name: MYSQL_DATABASE
           value: k8stest
+        - name: MYSQL_HOST
+          value: gold-mode-297211:northamerica-northeast1:test
         ports:
         - containerPort: 3306
           name: mysql

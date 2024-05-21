@@ -22,7 +22,7 @@ docker run -tid -v testvolume --name mysql -e MYSQL_ROOT_PASSWORD=Password12 mys
 docker container inspect mysql
 ```
 
-### Azure DB
+### DB
 ```
-docker run --name mysqlcontainer -p 3306:3306 -e MYSQL_ROOT_USER=root1 -e MYSQL_ROOT_PASSWORD=Password1 -e MYSQL_DATABASE=k8stest -e MYSQL_HOST=mysql_public_endpoint mysql:latest
+docker run --name mysqlcontainer -p 3306:3306 -e MYSQL_ROOT_USER=root1 -e MYSQL_ROOT_PASSWORD=Password1 -e MYSQL_DATABASE=k8stest -e MYSQL_HOST=gold-mode-297211:northamerica-northeast1:test mysql:latest
 ```
