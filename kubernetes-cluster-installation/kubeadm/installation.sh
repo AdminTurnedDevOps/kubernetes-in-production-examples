@@ -1,18 +1,21 @@
+#!/bin/bash
 sudo apt update -y
 
 # Install transport layer
 sudo apt-get install -y apt-transport-https curl
 
-# Install Kubernetes package on Ubuntu
-curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
-echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+# Add Kubernetes Signing Key
+curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.30/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+
+# Add Software Repositories
+echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.29/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list
 
 sudo apt update -y 
 
 sudo su -
 
 # Install and configure the CRI-O container runtime
-OS=xUbuntu_20.04
+OS=xUbuntu_22.04
 VERSION=1.22
 
 echo "deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/$OS/ /" > /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list
@@ -33,7 +36,7 @@ sudo systemctl enable crio --now
 apt-cache policy cri-o
 
 # Turn off swap
-swapoff -a
+sudo swapoff -a
 
 # sysctl settings and ip tables
 sudo modprobe overlay
@@ -50,8 +53,11 @@ sudo sysctl --system
 # Install and configure Kubeadm with the latest version of Kubernetes.
 sudo apt-get install -y kubelet kubeadm kubectl
 
+# To install a specific version of Kubernetes (not the latest), you can use the following...
+# Example: sudo apt-get install -qy kubelet=1.25.5-00 kubectl=1.25.5-00 kubeadm=1.25.5-00
+
 # You can see all Kubernetes versions available for Kubeadm like this: `apt list -a kubeadm`
 
-sudo apt-get install -qy kubelet=1.25.5-00 kubectl=1.28.5-00 kubeadm=1.28.5-00
+sudo apt-get install -qy kubelet=<version> kubectl=<version> kubeadm=<version>
 
 sudo apt-mark hold kubelet kubeadm kubectl
