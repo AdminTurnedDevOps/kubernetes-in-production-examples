@@ -3,8 +3,8 @@ Make sure you type `Y` at all prompts
 
 ### Create domain
 ```
-mkdir -p ~/projects/guestbook
-cd ~/projects/guestbook
+mkdir guestbook
+cd guestbook
 kubebuilder init --domain my.domain --repo my.domain/guestbook
 ```
 
