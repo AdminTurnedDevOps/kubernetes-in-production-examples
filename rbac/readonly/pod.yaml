@@ -1,6 +1,3 @@
-Create a Pod with the service account
-```
-kubectl apply -f - <<EOF
 apiVersion: v1
 kind: Pod
 metadata:
