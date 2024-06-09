@@ -1,0 +1,1 @@
+gcloud run deploy gowebapp --image adminturneddevops/gowebapi:latest
