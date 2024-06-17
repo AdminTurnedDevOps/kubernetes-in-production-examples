@@ -5,13 +5,21 @@ git clone https://github.com/kubeflow/manifests.git
 ```
 
 ```
+# Beta
 git checkout v1.8-branch
+
+# Prod
+git checkout v1.8.0
 ```
 
 From the `manifests` kubeflow directory, run the following:
 ```
 while ! kustomize build example | kubectl apply -f -; do echo "Retrying to apply resources"; sleep 20; done
 ```
+
+**To Delete**
+while ! kustomize build example | kubectl delete -f -; do echo "Retrying to apply resources"; sleep 20; done
+
 
 Once everything is installed you can access Kubeflow by logging into the dashboard.
 
