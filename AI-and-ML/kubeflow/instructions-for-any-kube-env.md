@@ -5,6 +5,10 @@ git clone https://github.com/kubeflow/manifests.git
 ```
 
 ```
+cd manifests
+```
+
+```
 # Beta
 git checkout v1.8-branch
 
