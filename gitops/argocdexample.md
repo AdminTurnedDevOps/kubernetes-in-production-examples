@@ -30,6 +30,21 @@ helm install argocd -n argocd argo/argo-cd \
 --create-namespace
 ```
 
+Get the initial ArgoCD UI admin password
+```
+kubectl get secret -n argocd argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
+```
+
+## Access The Dashboard
+
+```
+kubectl port-forward -n argocd service/argocd-server 8080:80
+```
+
+Log into the UI:
+
+- Username is admin
+- Password is the output of the command above: `kubectl get secret -n argocd argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d`
 
 ## Log Into Argo
 1. Log into the server via the CLI.
