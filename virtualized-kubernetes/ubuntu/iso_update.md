@@ -6,8 +6,8 @@
  
  Upload the ISO
  ```
- ./virtctl-v1.1.0-alpha.0-darwin-amd64 image-upload \
-   --image-path=/Users/michael/Downloads/ubuntu-22.04.3-live-server-amd64.iso \
+ ./virtctl-v1.2.2-darwin-amd64 image-upload \
+   --image-path=/Users/michael/Downloads/ubuntu-24.04-live-server-amd64.iso \
    --pvc-name=ubuntuisohd \
    --size=10Gi \
    --storage-class=azurefile-premium \

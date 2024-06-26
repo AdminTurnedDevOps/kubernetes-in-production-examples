@@ -6,7 +6,7 @@
  
  Upload the ISO
  ```
- ./virtctl-v1.1.0-alpha.0-darwin-amd64 image-upload \
+ ./virtctl-v1.2.2-darwin-amd64 image-upload \
    --image-path=/Users/michael/Downloads/SERVER_EVAL_x64FRE_en-us.iso \
    --pvc-name=isohd \
    --size=20Gi \
