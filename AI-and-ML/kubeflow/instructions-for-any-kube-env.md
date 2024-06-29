@@ -22,8 +22,9 @@ while ! kustomize build example | kubectl apply -f -; do echo "Retrying to apply
 ```
 
 **To Delete**
+```
 while ! kustomize build example | kubectl delete -f -; do echo "Retrying to apply resources"; sleep 20; done
-
+```
 
 Once everything is installed you can access Kubeflow by logging into the dashboard.
 
