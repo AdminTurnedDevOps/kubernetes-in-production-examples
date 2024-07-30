@@ -1,0 +1,12 @@
+apiVersion: v1alpha1
+kind: NetworkRuleConfig
+name: ingress-apid # Name of the config document.
+# Port selector defines which ports and protocols on the host are affected by the rule.
+portSelector:
+    # Ports defines a list of port ranges or single ports.
+    ports:
+        - 3306
+    protocol: tcp # Protocol defines traffic protocol (e.g. TCP or UDP).
+# Ingress defines which source subnets are allowed to access the host ports/protocols defined by the `portSelector`.
+ingress:
+    - subnet: 192.168.0/16 # Subnet defines a source subnet.
