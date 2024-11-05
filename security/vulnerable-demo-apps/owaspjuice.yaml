@@ -17,3 +17,15 @@ spec:
         image: bkimminich/juice-shop
         ports:
         - containerPort: 3000
+# ---
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: owaspjuiceservice
+# spec:
+#   selector:
+#     app: juice
+#   ports:
+#     - protocol: TCP
+#       port: 80
+#   type: LoadBalancer

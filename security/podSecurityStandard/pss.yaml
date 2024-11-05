@@ -11,7 +11,7 @@ spec:
     metadata:
       labels:
         app: nginxdeployment
-        pod-security.kubernetes.io/enforce: baseline
+        pod-security.kubernetes.io/enforce: restricted
     spec:
       containers:
       - name: nginxdeployment
