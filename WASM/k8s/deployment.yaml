@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gowasm
+spec:
+  selector:
+    matchLabels:
+      app: gowasm
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: gowasm
+    spec:
+      runtimeClassName: wasmtime-spin-v2
+      containers:
+      - name: gowasm
+        image: adminturneddevops/gowasm:latest
+        ports:
+        - containerPort: 8080
+# ---
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: gowasm
+# spec:
+#   selector:
+#     app: gowasm
+#   ports:
+#     - protocol: TCP
+#       port: 8080

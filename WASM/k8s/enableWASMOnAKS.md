@@ -1,0 +1,1 @@
+https://learn.microsoft.com/en-us/azure/aks/use-wasi-node-pools
